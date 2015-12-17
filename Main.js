@@ -1,5 +1,4 @@
 var mLog = 'Module_name'; //use this variable to give yours logs a common initial name
-var graphics; //mo.Graphics object
 
 /* This function will receive the data from Lichen */
 function onMessageReceived( event ){
