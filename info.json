@@ -1,0 +1,17 @@
+{
+    "name": "External Module Name",
+    "description": "External module description",
+    "tags": "",
+    "familiy": "",
+    "authors": "",
+    "version": "0.1",
+    "thumbnail": "",
+    "params": [
+        {
+            "type": "Input data type",
+            "name": "Input name",
+            "description": "",
+            "optional": false
+        }
+    ]
+}
