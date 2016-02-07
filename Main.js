@@ -2,8 +2,25 @@
 var mLog = 'Module_name'; //use this variable to give yours logs a common initial name
 
 initModule = function () {
-
+    // Initialize graphics
+    graphics = new mo.Graphics({
+    	container: "#container",
+        init: function(){ initMap(this); },
+    	cycle: function(){ cycleMap(this); }
+    });
+    parentWinLocHash = parent.window.location.hash;
 };
+
+//============== MOEBIO FRAMEWORK FUNCTIONS =====================//
+
+// function to initialize objects
+function initMap (g) {
+    console.log(mLog, 'Initialize ', "name");
+}
+// loop function to draw on canvas
+function cycleMap (g) {
+
+}
 
 //============== EXTERNAL MODULE | LICHEN COMMUNICATION =====================//
 
