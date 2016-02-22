@@ -1,23 +1,27 @@
 //=========== EXTERNAL MODULE GLOBAL VARIABLES & INITIATION  ================//
-var mLog = 'Module_name'; //use this variable to give yours logs a common initial name
 
+var mLog = 'Module_name'; //use this variable to give yours logs a common initial name
+var graphics; // Graphics object
+
+/* This function is called once the window has loaded */
 initModule = function () {
-    // Initialize graphics
+    /* Creates a new graphcis object and initializes basic configuration and
+     * optionally starts the draw cycle.
+     * http://moebiolabs.github.io/moebio_framework/docs/Graphics.html */
     graphics = new mo.Graphics({
     	container: "#container",
         init: function(){ initMap(this); },
     	cycle: function(){ cycleMap(this); }
     });
-    parentWinLocHash = parent.window.location.hash;
 };
 
 //============== MOEBIO FRAMEWORK FUNCTIONS =====================//
 
-// function to initialize objects
+// Function to initialize drawing related things. Called once after base initialization.
 function initMap (g) {
     console.log(mLog, 'Initialize ', "name");
 }
-// loop function to draw on canvas
+// This is called once per frame of the draw loop unless cycleInterval is set to 0.
 function cycleMap (g) {
 
 }
@@ -26,8 +30,9 @@ function cycleMap (g) {
 
 /* This function will receive the data from Lichen */
 function onMessageReceived( event ){
-	console.log( mLog,"onMessageReceived, event.data:", event.data );
+	console.log( mLog,"onMessageReceived, event.data: ", event.data );
 	//HERE GOES YOUR CODE
+    //.....
 }
 
 /* Array defining the data that will be sent to Lichen
@@ -64,6 +69,7 @@ function sendDataToParent( val0 ) {
 
 // Register to the 'message' event to get the onMessageReceived function called
 window.addEventListener( "message", onMessageReceived, false);
+
 window.addEventListener( 'resize', onWindowResize, false );
 window.addEventListener("load", onWindowLoad );
 
@@ -79,18 +85,14 @@ document.addEventListener( 'mouseup', onMouseUp, false );
 
 //============== EXTERNAL MODULE | WINDOWS & MOUSE CALLBACKS  =====================//
 
-function onParentWindowResize (){
-	//map.setLichenCanvasSize(parent.window.innerWidth, parent.window.innerHeight);
-}
-function onWindowResize () {
-	//console.log(mLog, 'Module window resize. map.mW: ', map.mW, ' map.mH: ', map.mH);
-}
+function onParentWindowResize (){ }
+function onWindowResize () { }
 function onWindowLoad () {
 	initModule();
 }
 
 function onDocumentMouseMove( event ) {
-	//console.log(mLog, 'Mouse moveing arround. X: ',event.clientX , ' mouse Y: ',event.clientY );
+	//console.log(mLog, 'Mouse moving arround. X: ',event.clientX , ' mouse Y: ',event.clientY );
 }
 function onMouseDown( event ) {
 	//console.log(mLog, 'Mouse click down. X: ',event.clientX , ' mouse Y: ',event.clientY );
